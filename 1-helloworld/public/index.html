@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React App</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <img src="logo192.png" alt="" id="React-img" class="">
+
+    <script type="text/babel">
+    function TimeConverter() {
+    const [usTime, setUsTime] = React.useState("");
+    const jpTime = new Date().toLocaleTimeString("ja-JP");
+
+    const convertToUS = () => {
+        const jpTimeAsDate = new Date();
+        const options = { timeZone: 'America/New_York', timeStyle: 'medium' };
+        const usTime = new Intl.DateTimeFormat('en-US', options).format(jpTimeAsDate);
+        setUsTime(usTime);
+    };
+
+    return (
+        <div>
+            <p>Current JP Time: {jpTime}</p>
+            <button onClick={convertToUS}>Convert to US Time</button>
+            <p>Converted US Time: {usTime}</p>
+        </div>
+    );
+}
+
+
+        // Render the component to the DOM
+        ReactDOM.render(<TimeConverter />, document.getElementById('root'));
+    </script>
+</body>
+</html>
