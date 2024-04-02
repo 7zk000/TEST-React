@@ -1,28 +1,98 @@
-.Apps {
-  text-align: center;
+/* 全体のフォントと背景色 */
+.App {
+  font-family: 'Arial', sans-serif;
+  background-color: #E0FFFF; /* 淡い水色の背景 */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
+/* ヘッダー部分 */
 .App-header {
-  background-color: gray ;
-  padding: 20px;
+  background-color: #00BFFF; /* 鮮やかな水色 */
   color: white;
+  padding: 2px 20px;
+  text-align: left;
 }
 
+/* メッセージ表示エリア */
 .messages {
-  margin: 20px;
-  padding: 10px;
-  border: 1px solid black;
-  height: 300px;
-  overflow-y: scroll;
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-input {
-  margin: 10px;
+/* 各メッセージ */
+.message {
+  display: flex;
+  align-items: center;
+  max-width: 60%;
+  word-wrap: break-word;
   padding: 10px;
-  width: 200px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  color: black;
+}
+.message-icon {
+  margin-right: 10px; /* アイコンとテキストの間隔 */
+  font-size: 24px; /* アイコンのサイズ */
+}
+/* メッセージの情報（IDと日時） */
+.message-info {
+  font-size: 0.8rem;
+  margin-bottom: 5px;
 }
 
-button {
+/* メッセージのテキスト */
+.message-text {
+  font-size: 1rem;
+}
+.message-info, .message-text {
+  margin: 2px 0; /* 隙間を縮める */
+}
+
+/* 自分のメッセージ */
+.message.self {
+  background-color: #00BFFF; /* 自分のメッセージの背景色を鮮やかな水色に */
+  color: white; /* テキスト色を白に */
+}
+
+/* 相手のメッセージ */
+.message.other {
+  background-color: #008080; /* 相手のメッセージの背景色をダークシアンに */
+  color: white; /* テキスト色を白に */
+}
+
+/* メッセージ入力エリア */
+.message-input {
+  display: flex;
   padding: 10px;
+  background-color: #F0F8FF; /* アリスブルー */
+}
+
+/* テキスト入力フィールド */
+.message-input input {
+  flex: 1;
+  padding: 10px;
+  margin-right: 10px;
+  border: 2px solid #00BFFF; /* 鮮やかな水色 */
+  border-radius: 20px;
+  outline: none;
+}
+
+/* 送信ボタン */
+.send-button {
+  padding: 10px 20px;
+  background-color: #00BFFF; /* 鮮やかな水色 */
+  color: white;
+  border: none;
+  border-radius: 20px;
   cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #009ACD; /* より濃い水色 */
 }
